@@ -11,10 +11,11 @@
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jackson.version>2.7.5</jackson.version>        
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>    
         <springframework.version>4.3.7.RELEASE</springframework.version>
-        <springsecurity.version>4.2.2.RELEASE</springsecurity.version>        
+        <springsecurity.version>4.2.2.RELEASE</springsecurity.version>
+        <hibernate.version>4.3.6.Final</hibernate.version>    
+        <jackson.version>2.7.5</jackson.version>            
     </properties>
 
     <dependencies>
@@ -24,6 +25,11 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${springframework.version}</version>
         </dependency>
+        <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
+                <version>${springframework.version}</version>
+        </dependency>        
 <!--        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -42,13 +48,13 @@
                 <version>${springsecurity.version}</version>
         </dependency>
         
+        
         <!-- Servlet // conexion servidor apache, etc-->
         <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
                 <version>3.1.0</version>
-        </dependency>               
-        
+        </dependency>                       
         <!-- Servlet // conexion archivos jsp-->
         <dependency>
                 <groupId>javax.servlet</groupId>
@@ -59,7 +65,28 @@
                 <groupId>javax.servlet.jsp</groupId>
                 <artifactId>javax.servlet.jsp-api</artifactId>
                 <version>2.3.1</version>
-        </dependency>-->        
+        </dependency>-->  
+        
+        <!-- Hibernate -->
+        <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate.version}</version>
+        </dependency>
+        
+        <!-- Oracle -->
+        <dependency>        
+            <groupId>oracle.jdbc</groupId>               
+            <artifactId>ojdbc</artifactId>      
+            <version>14</version> 
+        </dependency>
+        
+        <!-- Libreria de apache con utilitarios basicos -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.1</version>
+        </dependency>                                                            
     </dependencies>
 
     <build>
