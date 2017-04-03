@@ -5,10 +5,18 @@
  */
 package com.bryan.crud.service;
 
+import com.bryan.crud.dao.UserDAO;
+import com.bryan.crud.model.User;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -17,9 +25,20 @@ import org.springframework.stereotype.Service;
 @Service("customUserDetailsService")
 public class CustomUserDetailsService implements UserDetailsService{
 
-    @Override
+    @Autowired
+    private UserDAO userService;        
+    
+    @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String ssoId) throws UsernameNotFoundException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        User user = userService.findBySSO(ssoId);
+        System.out.println("Usuario :"+user);
+        if(user==null){
+            System.out.println("Usuario no encontrado");
+            throw new UsernameNotFoundException("Usuario no encontrado");            
+        }
+        List<GrantedAuthority> roles = new ArrayList<GrantedAuthority>();
+        roles.add(new SimpleGrantedAuthority(String.valueOf(user.getPerfil())));
+        return new org.springframework.security.core.userdetails.User(user.getUsuario(), user.getClave(),roles);
     }
     
 }
