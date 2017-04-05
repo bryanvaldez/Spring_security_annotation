@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.bryan.crud.service;
+package com.bryan.crud.configuration.security;
 
-import com.bryan.crud.dao.UserDAO;
+import com.bryan.crud.dao.UserDao;
 import com.bryan.crud.model.User;
+import com.bryan.crud.service.UserService;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 /**
  *
  * @author bvaldez
@@ -26,11 +28,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class CustomUserDetailsService implements UserDetailsService{
 
     @Autowired
-    private UserDAO userService;        
+    private UserDao userService;        
     
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String ssoId) throws UsernameNotFoundException {
-        User user = userService.findBySSO(ssoId);
+        User user = userService.findByLogin(ssoId);
         System.out.println("Usuario :"+user);
         if(user==null){
             System.out.println("Usuario no encontrado");

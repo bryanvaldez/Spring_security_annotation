@@ -3,16 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.bryan.crud.dao;
+package com.bryan.crud.service;
 
-import com.bryan.crud.helper.GenericDAO;
 import com.bryan.crud.model.User;
 
 /**
  *
  * @author bvaldez
  */
-public interface UserDAO{
-    User findById(int id);
-    User findBySSO(String sso);
+public interface UserService{
+    
+    User findByLogin(String usuario);
+    
+    User findById(Long id);
 }
