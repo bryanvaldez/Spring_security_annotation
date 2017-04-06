@@ -36,7 +36,7 @@ public class User implements Serializable{
     @Column(name = "c_apellido_paterno")
     private String apellidoPaterno;
     
-    @Column(name = "n_apellido_materno")
+    @Column(name = "c_apellido_materno")
     private String apellidoMaterno;
     
     @Column(name = "c_nombre")

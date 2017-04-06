@@ -5,22 +5,31 @@
  */
 package com.bryan.crud.service;
 
-import com.bryan.crud.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.bryan.crud.dao.UserDao;
+import com.bryan.crud.model.User;
 /**
  *
  * @author bvaldez
  */
+@Service("userService")
+@Transactional
 public class UserServiceImpl implements UserService{
 
+    @Autowired
+    private UserDao dao;
+    
     @Override
     public User findByLogin(String usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return dao.findByLogin(usuario);
     }
 
     @Override
-    public User findById(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public User findById(int id) {
+        return dao.findById(id);
     }
     
 }

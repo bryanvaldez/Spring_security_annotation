@@ -28,7 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class CustomUserDetailsService implements UserDetailsService{
 
     @Autowired
-    private UserDao userService;        
+    private UserService userService;        
     
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String ssoId) throws UsernameNotFoundException {
@@ -39,7 +39,7 @@ public class CustomUserDetailsService implements UserDetailsService{
             throw new UsernameNotFoundException("Usuario no encontrado");            
         }
         List<GrantedAuthority> roles = new ArrayList<GrantedAuthority>();
-        roles.add(new SimpleGrantedAuthority(String.valueOf(user.getPerfil())));
+        roles.add(new SimpleGrantedAuthority("ROLE_USER"));
         return new org.springframework.security.core.userdetails.User(user.getUsuario(), user.getClave(),roles);
     }
     
