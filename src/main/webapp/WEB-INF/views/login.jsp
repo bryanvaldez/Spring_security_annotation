@@ -17,11 +17,11 @@
                 <div>
                     <form action="${loginUrl}" method="post">
                         <div>
-                            <label>Usuario</label>
+                            <label>ID</label>
                             <input type="text" id="username" name="ssoId" required>
                         </div>
                         <div>
-                            <label>Clave</label>
+                            <label>ID+</label>
                             <input type="password" id="password" name="password" required>
                         </div>
                         <div>
