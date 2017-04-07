@@ -32,7 +32,7 @@ public class CustomUserDetailsService implements UserDetailsService{
     
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String ssoId) throws UsernameNotFoundException {
-        User user = userService.findByLogin(ssoId);
+        User user = userService.findBySSO(ssoId);
         System.out.println("Usuario :"+user);
         if(user==null){
             System.out.println("Usuario no encontrado");
