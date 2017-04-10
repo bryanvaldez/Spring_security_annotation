@@ -98,6 +98,13 @@
             <version>3.1</version>
         </dependency>
         
+        <!-- Libreria que se utiliza para codificar y decodificar objetos a json -->
+        <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+        </dependency>
+        
         <!-- Muestra las querys ejecutadas en hibernate / verificar actualizaciones /Evaluar-->
 <!--        <dependency>
             <groupId>org.slf4j</groupId>

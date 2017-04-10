@@ -11,6 +11,8 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.bryan.crud.model.User;
+import java.util.List;
+import org.hibernate.criterion.Order;
 
 /**
  *
@@ -20,7 +22,7 @@ import com.bryan.crud.model.User;
 public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao{
 
     @Override
-    public User findByLogin(String usuario) {
+    public User findBySSO(String usuario) {
         Criteria criteria = createEntityCriteria();
         criteria.add(Restrictions.eq("usuario", usuario));
         return (User) criteria.uniqueResult();
@@ -31,6 +33,21 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao{
         return getByKey(id);
     }
 
+    @Override
+    public void save(User user) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
-    
+    @Override
+    public void deleteBySSO(String sso) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<User> findAllUsers() {
+        Criteria criteria = createEntityCriteria().addOrder(Order.asc("apellidoPaterno"));
+        criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        return (List<User>) criteria.list();
+    }
+
 }

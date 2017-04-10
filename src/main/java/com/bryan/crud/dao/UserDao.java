@@ -6,6 +6,7 @@
 package com.bryan.crud.dao;
 
 import com.bryan.crud.model.User;
+import java.util.List;
 
 /**
  *
@@ -13,8 +14,14 @@ import com.bryan.crud.model.User;
  */
 public interface UserDao {
     
-    User findByLogin(String usuario);
+    User findBySSO(String usuario);
     
     User findById(int id);
+    
+    void save(User user);
+    
+    void deleteBySSO(String sso);
+    
+    List<User> findAllUsers();
     
 }

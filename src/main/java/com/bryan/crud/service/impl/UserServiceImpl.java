@@ -19,21 +19,10 @@ import java.util.List;
  */
 @Service("userService")
 @Transactional
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserDao dao;
-    
-//    @Override
-//    public User findByLogin(String usuario) {
-//        return dao.findByLogin(usuario);
-//    }
-//
-//    @Override
-//    public User findById(int id) {
-//        return dao.findById(id);
-//    }
-//    
+    private UserDao dao;    
 
     @Override
     public User findById(int id) {
@@ -42,31 +31,11 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User findBySSO(String usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return dao.findBySSO(usuario);
     }
 
     @Override
-    public Object find(Object t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Object> all() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void save(Object t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void update(Object t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void delete(Object t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<User> listAllUsers() {
+        return dao.findAllUsers();
     }
 }

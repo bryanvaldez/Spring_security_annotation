@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.bryan.crud.service;
+package com.bryan.crud.dao;
 
 import java.util.List;
 
@@ -11,10 +11,10 @@ import java.util.List;
  *
  * @author bvaldez
  */
-public interface GenericService<T> {
+public interface GenericDAO<T> {
     public T find(T t);
     public List<T> all();
-    public void save(T t);
+    public void save (T t);
     public void update(T t);
-    public void delete(T t);
+    public void delete(T t);   
 }

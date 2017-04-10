@@ -6,15 +6,17 @@
 package com.bryan.crud.service;
 
 import com.bryan.crud.model.User;
+import java.util.List;
 
 /**
  *
  * @author bvaldez
  */
-public interface UserService extends GenericService<Object>{
+public interface UserService{
 
     User findById(int id);
     
     User findBySSO(String usuario);
  
+    List<User> listAllUsers();    
 }

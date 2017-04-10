@@ -12,8 +12,36 @@
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Welcome page</title>
     </head>
-    <body>
+    <body ng-app="app" ng-cloak="">
 	Dear <strong>${user}</strong>, Welcome to Home Page.
 	<a href="<c:url value="/logout" />">Logout</a>
+        <div ng-controller="UserController as ctrl">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+      <script src="<c:url value='/static/js/lib/angular.min.js' />"</script>
+      <script src="<c:url value='/static/js/lib/angular-route.min.js' />"</script>
+      <script src="<c:url value='/static/js/app.js' />"></script>
+      <script src="<c:url value='/static/js/service/service_user.js' />"></script>
+      <script src="<c:url value='/static/js/controller/controller_user.js' />"></script>        
     </body>
 </html>
