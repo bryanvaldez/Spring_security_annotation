@@ -19,20 +19,20 @@
             <table>
                 <thead>
                     <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>apellidoPaterno</th>
+                        <th>apellidoMaterno</th>
+                        <th>nombre</th>
+                        <th>perfil</th>
+                        <th>estado</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr ng-repeat="u in ctrl.users">
+                        <td><span ng-bind="u.apellidoPaterno"></span></td>
+                        <td><span ng-bind="u.apellidoMaterno"></span></td>
+                        <td><span ng-bind="u.nombre"></span></td>
+                        <td><span ng-bind="u.perfil.nombre"></span></td>
+                        <td><span ng-bind="u.estado"></span></td>
                     </tr>
                 </tbody>
             </table>

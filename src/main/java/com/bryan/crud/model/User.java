@@ -6,13 +6,17 @@
 package com.bryan.crud.model;
 
 import com.bryan.crud.helper.TypesUtil;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -22,6 +26,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tab_usuario")
+
 public class User implements Serializable{
    
     @Id
@@ -48,8 +53,10 @@ public class User implements Serializable{
     @Column(name = "n_estado")
     private int estado;
     
-    @Column(name = "n_perfil")
-    private int perfil;
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name = "n_perfil")
+    @JsonManagedReference
+    private Perfil perfil;
     
     @Column(name = "c_ubigeo")
     private String ubigeo;
@@ -123,11 +130,11 @@ public class User implements Serializable{
         this.estado = estado;
     }
 
-    public int getPerfil() {
+    public Perfil getPerfil() {
         return perfil;
     }
 
-    public void setPerfil(int perfil) {
+    public void setPerfil(Perfil perfil) {
         this.perfil = perfil;
     }
 
