@@ -28,11 +28,11 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="u in ctrl.users">
-                        <td><span ng-bind="u.apellidoPaterno"></span></td>
-                        <td><span ng-bind="u.apellidoMaterno"></span></td>
-                        <td><span ng-bind="u.nombre"></span></td>
-                        <td><span ng-bind="u.perfil.nombre"></span></td>
-                        <td><span ng-bind="u.estado"></span></td>
+                        <td><span ng-bind="u.APELLIDOPATERNO"></span></td>
+                        <td><span ng-bind="u.APELLIDOMATERNO"></span></td>
+                        <td><span ng-bind="u.NOMBRE"></span></td>
+                        <td><span ng-bind="u.NOMBREPERFIL"></span></td>
+                        <td><span ng-bind="u.ESTADO"></span></td>
                     </tr>
                 </tbody>
             </table>

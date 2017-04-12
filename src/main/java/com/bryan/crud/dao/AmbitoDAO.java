@@ -5,7 +5,7 @@
  */
 package com.bryan.crud.dao;
 
-import com.bryan.crud.model.User;
+import com.bryan.crud.model.Ambito;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,19 +13,9 @@ import java.util.List;
  *
  * @author bvaldez
  */
-public interface UserDao {
+public interface AmbitoDAO {
     
-    User findBySSO(String usuario);
+    List<Ambito> findAllAmbitos();
     
-    User findById(int id);
-    
-    void save(User user);
-    
-    void deleteBySSO(String sso);
-    
-    List<User> findAllUsers();
-    
-    //--change
-    
-    ArrayList allUsers();
+    ArrayList allAmbitos();
 }

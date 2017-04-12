@@ -5,7 +5,7 @@
  */
 package com.bryan.crud.service;
 
-import com.bryan.crud.model.User;
+import com.bryan.crud.model.Ambito;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,15 +13,9 @@ import java.util.List;
  *
  * @author bvaldez
  */
-public interface UserService{
-
-    User findById(int id);
+public interface AmbitoService {
     
-    User findBySSO(String usuario);
- 
-    List<User> listAllUsers();
-
-    //change 
+    ArrayList allAmbitos();
     
-    ArrayList allUsers();
+    List<Ambito> findAllAmbitos();
 }

@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bryan.crud.dao.UserDao;
 import com.bryan.crud.model.User;
 import com.bryan.crud.service.UserService;
+import java.util.ArrayList;
 import java.util.List;
 /**
  *
@@ -37,5 +38,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> listAllUsers() {
         return dao.findAllUsers();
+    }
+
+    @Override
+    public ArrayList allUsers() {
+        return dao.allUsers();
     }
 }
